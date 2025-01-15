@@ -17,19 +17,23 @@ public class Point{
     }
     public boolean isCollinear(Point p1, Point p2){
         boolean collinear = false;
-        double s1 = (((this.getY())-(p1.getY())/(this.getX())-(p1.getX())));
-        if((this.getX())-(p1.getX()) == 0){
-            s1 = 0.0;
+        double s1;
+        //double s1 = (((this.getY())-(p1.getY())/(this.getX())-(p1.getX())));
+        if((this.x-p1.getX()) == 0){
+            s1 = 0.0;     
         }
-        double s2 = (((this.getY())-(p2.getY())/(this.getX())-(p2.getX())));
-        if((this.getX())-(p2.getX()) == 0){
+        else{
+            s1 = (((this.y)-(p1.getY())/((this.x)-(p1.getX()))));
+        }
+        double s2;
+        //double s2 = (((this.getY())-(p2.getY())/(this.getX())-(p2.getX())));
+        if((this.x)-(p2.getX()) == 0){
             s2 = 0.0;
         }
-        double s3 = (((p1.getY())-(p2.getY())/(p1.getX())-(p2.getX())));
-        if((p1.getX())-(p2.getX()) == 0){
-            s3 = 0.0;
+        else{
+            s2 = (((this.y)-(p2.getY())/((this.x)-(p2.getX()))));
         }
-        if(s1 == s2 && s2 == s3){
+        if(s1 == s2){
             collinear = true;
         }
         return collinear;
